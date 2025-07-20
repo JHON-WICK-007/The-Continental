@@ -1,3 +1,1 @@
-# The-Continental
-This is the The-Continental<br>
-This is the game, where you only can enter.
+In this day i upload my html projects which i am working on this time.
