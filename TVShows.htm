@@ -1,319 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CineVault : TV Shows</title>
-    <link rel="shortcut icon" href="logo.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <style>
-      header {
-        background-color: #ffffff;
-        color: #000000;
-        padding: 10px 0;
-        text-align: center;
-      }
 
-      h1 {
-        margin: 0;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineVault : TV Shows</title>
+  <link rel="shortcut icon" href="logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css.css">
+  <style>
+    main {
+      padding: 20px;
+    }
 
-      #head {
-        font-family: "Times New Roman", sans-serif;
-        color: #000000;
-        text-align: center;
-        margin: 20px;
-      }
+    .para {
+      font-style: italic;
+      font-size: 18px;
+      color: #ffffff;
+      margin: 20px 0;
+      text-align: center;
+    }
 
-      .nav {
-        margin-top: 10px;
-        background-color: #ffffff;
-        padding: 10px 0;
-      }
+    .film-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      margin-top: 50px;
+      margin-bottom: 170px;
+    }
 
-      .nav a {
-        position: relative;
-        color: #000000;
-        text-decoration: none;
-        margin: 0 15px;
-        font-weight: bold;
-        transition: color 0.3s ease;
-      }
+    .film-card {
+      border: 1px solid #444;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #000000;
+      text-align: center;
+    }
 
-      .nav a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 2px;
-        background-color: #000000;
-        transition: width 0.3s ease;
-      }
+    .film-card:hover {
+      border-color: #f5c518;
+      background-color: #1a1a1a;
+    }
 
-      .nav a:hover::after {
-        width: 100%;
-      }
+    .film-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
 
-      .nav a:hover {
-        color: #555;
-      }
+    .film-title {
+      color: #ffffff;
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 17px;
+      text-decoration: none;
+    }
 
-      /* Active page underline */
-      .nav a.active {
-        color: #d35400;
-      }
+    .film-title a {
+      color: #ffffff;
+      text-decoration: none;
+    }
 
-      .nav a.active::after {
-        width: 100%;
-        background-color: #d35400;
-      }
+    .film-title a:hover {
+      color: #f5c518;
+    }
+  </style>
+</head>
 
-      body {
-        font-family: "Times New Roman", Times, serif, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #ffffff;
-      }
+<body>
+  <header>
+    <h1 id="head"><span class="logo-text">CineVault</span></h1>
+    <nav class="nav">
+      <a href="Home.htm">Home</a> | <a href="Login.htm">Login</a> |
+      <a href="SignUp.htm">Sign Up</a> | <a href="GOAT's.htm">GOAT's</a> |
+      <a href="Genres.htm">Genres</a> | <a href="Films.htm">Films</a> |
+      <a href="TVShows.htm">TV Shows</a> |
+      <a href="Awards&Events.htm">Awards & Events</a> |
+      <a href="Celebs.htm">Celebs</a> | <a href="Members.htm">Members</a> |
+      <a href="News.htm">News</a> | <a href="Profile.htm">Profile</a> |
+      <a href="AboutUs.htm">About Us</a>
+    </nav>
+  </header>
 
-      .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 20px;
-      }
+  <main>
+    <p class="para">
+      Explore popular and critically acclaimed TV Shows from every era of
+      cinema.
+    </p>
 
-      .footer-links a {
-        color: #ffffff;
-        text-decoration: none;
-        font-size: 14px;
-      }
-
-      .footer-links a:hover {
-        text-decoration: underline;
-      }
-
-      .footer-brand {
-        font-size: 14px;
-        color: #ffffff;
-      }
-
-      .footer-social {
-        margin-top: 50px;
-      }
-
-      .footer-social h3,
-      .footer-app h3 {
-        margin-bottom: 10px;
-      }
-
-      .footer-top {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: flex-start;
-        gap: 30px;
-        margin-bottom: 30px;
-      }
-
-      .icons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-      }
-
-      .icons a {
-        margin-top: 10px;
-        color: #ffffff;
-        font-size: 24px;
-        text-decoration: none;
-      }
-
-      .qr-box {
-        width: 100px;
-        height: 80px;
-        background-color: #000000;
-        color: #ffffff;
-        display: inline-block;
-        line-height: 80px;
-        text-align: center;
-        font-size: 12px;
-        border-radius: 10px;
-      }
-
-      .site-footer {
-        background-color: #0d0d0d;
-        color: #fff;
-        padding: 30px 20px;
-        font-family: Arial, sans-serif;
-        text-align: center;
-      }
-      main {
-        padding: 20px;
-      }
-
-      .para {
-        font-style: italic;
-        font-size: 18px;
-        color: #000000;
-        margin: 20px 0;
-        text-align: center;
-      }
-
-      .film-grid {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 20px;
-        margin-bottom: 200px;
-      }
-
-      .film-card {
-        border: 1px solid #ccc;
-        padding: 10px;
-        border-radius: 5px;
-        background-color: #f5f5f5;
-        text-align: center;
-      }
-
-      .film-card img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-
-      .film-title {
-        font-weight: bold;
-        margin-top: 10px;
-        font-size: 16px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <h1 id="head">CineVault</h1>
-      <nav class="nav">
-        <a href="Home.htm">Home</a> | <a href="Login.htm">Login</a> |
-        <a href="SignUp.htm">Sign Up</a> | <a href="GOAT's.htm">GOAT's</a> |
-        <a href="Genres.htm">Genres</a> | <a href="Films.htm">Films</a> |
-        <a href="TVShows.htm">TV Shows</a> |
-        <a href="Awards&Events.htm">Awards & Events</a> |
-        <a href="Celebs.htm">Celebs</a> | <a href="Members.htm">Members</a> |
-        <a href="News.htm">News</a> | <a href="Profile.htm">Profile</a> |
-        <a href="AboutUs.htm">About Us</a>
-      </nav>
-    </header>
-
-    <main>
-      <p class="para">
-        Explore popular and critically acclaimed TV Shows from every era of
-        cinema.
-      </p>
-
-      <div class="film-grid">
-        <div class="film-card">
-          <a href="https://en.wikipedia.org/wiki/Breaking_Bad" target="_blank"
-            ><img src="bb.jpg" alt="Breaking Bad"
-          /></a>
-          <div class="film-title">Breaking Bad</div>
-        </div>
-        <div class="film-card">
-          <a
-            href="https://en.wikipedia.org/wiki/Better_Call_Saul"
-            target="_blank"
-            ><img src="bcs.jpg" alt="Better Call Saul"
-          /></a>
-          <div class="film-title">Better Call Saul</div>
-        </div>
-        <div class="film-card">
-          <a href="https://en.wikipedia.org/wiki/The_Sopranos" target="_blank"
-            ><img src="the sopranos.jpg" alt="The Sopranos"
-          /></a>
-          <div class="film-title">The Sopranos</div>
-        </div>
-        <div class="film-card">
-          <a
-            href="https://en.wikipedia.org/wiki/Game_of_Thrones"
-            target="_blank"
-            ><img src="got.jpg" alt="Game of Thrones"
-          /></a>
-          <div class="film-title">Game of Thrones</div>
-        </div>
-        <div class="film-card">
-          <a
-            href="https://en.wikipedia.org/wiki/Dark_(TV_series)"
-            target="_blank"
-            ><img src="dark.jpg" alt="Dark"
-          /></a>
-          <div class="film-title">Dark</div>
-        </div>
-        <div class="film-card">
-          <a
-            href="https://en.wikipedia.org/wiki/Mindhunter_(TV_series)"
-            target="_blank"
-            ><img src="mindhunter.jpg" alt="Mindhunter"
-          /></a>
-          <div class="film-title">Mindhunter</div>
+    <div class="film-grid">
+      <div class="film-card">
+        <img src="bb.jpg" alt="Breaking Bad" />
+        <div class="film-title"><a href="https://en.wikipedia.org/wiki/Breaking_Bad" target="_blank">Breaking Bad</a>
         </div>
       </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-top">
-        <div class="footer-social">
-          <h3>Follow CineVault on social</h3>
-          <div class="icons">
-            <a href="https://en.wikipedia.org/wiki/Facebook" target="_blank"
-              ><i class="fa-brands fa-facebook"></i
-            ></a>
-            <a href="https://en.wikipedia.org/wiki/Twitter" target="_blank"
-              ><i class="fa-brands fa-twitter"></i
-            ></a>
-            <a href="https://en.wikipedia.org/wiki/Instagram" target="_blank"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
-            <a href="https://en.wikipedia.org/wiki/YouTube" target="_blank"
-              ><i class="fa-brands fa-youtube"></i
-            ></a>
-            <a href="https://en.wikipedia.org/wiki/LinkedIn" target="_blank"
-              ><i class="fa-brands fa-linkedin"></i
-            ></a>
-          </div>
+      <div class="film-card">
+        <img src="bcs.jpg" alt="Better Call Saul" />
+        <div class="film-title"><a href="https://en.wikipedia.org/wiki/Better_Call_Saul" target="_blank">Better Call
+            Saul</a></div>
+      </div>
+      <div class="film-card">
+        <img src="the sopranos.jpg" alt="The Sopranos" />
+        <div class="film-title"><a href="https://en.wikipedia.org/wiki/The_Sopranos" target="_blank">The Sopranos</a>
         </div>
+      </div>
+      <div class="film-card">
+        <img src="got.jpg" alt="Game of Thrones" />
+        <div class="film-title"><a href="https://en.wikipedia.org/wiki/Game_of_Thrones" target="_blank">Game of
+            Thrones</a></div>
+      </div>
+      <div class="film-card">
+        <img src="dark.jpg" alt="Dark" />
+        <div class="film-title"><a href="https://en.wikipedia.org/wiki/Dark_(TV_series)" target="_blank">Dark</a></div>
+      </div>
+      <div class="film-card">
+        <img src="mindhunter.jpg" alt="Mindhunter" />
+        <div class="film-title"><a href="https://en.wikipedia.org/wiki/Mindhunter_(TV_series)"
+            target="_blank">Mindhunter</a></div>
+      </div>
+    </div>
+  </main>
 
-        <div class="footer-app">
-          <h3>Get the CineVault App</h3>
-          <p>For Android and iOS</p>
-          <div class="qr-box">
-            <img src="qr.png" alt="CineVault" width="100" />
-          </div>
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-social">
+        <h3>Follow CineVault on social</h3>
+        <div class="icons">
+          <a href="https://en.wikipedia.org/wiki/Facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://en.wikipedia.org/wiki/Twitter" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://en.wikipedia.org/wiki/Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://en.wikipedia.org/wiki/YouTube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://en.wikipedia.org/wiki/LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
 
-      <div class="footer-links">
-        <a href="#">Help</a>
-        <a href="Members.htm">Membership</a>
-        <a href="News.htm">News Room</a>
-        <a href="">Conditions of Use</a>
-        <a href="#">Privacy Policy</a>
+      <div class="footer-app">
+        <h3>Get the CineVault App</h3>
+        <p>For Android and iOS</p>
+        <div class="qr-box"><img src="qr.png" alt="CineVault" width="100"></div>
       </div>
+    </div>
 
-      <div class="footer-brand">
-        <p>
-          A <strong><b>CineVault</b></strong> company
-        </p>
-        <p>&copy; 2025 by CineVault.com, Inc.</p>
-      </div>
-    </footer>
-  </body>
+    <div class="footer-links">
+      <a href="#">Help</a>
+      <a href="Members.htm">Membership</a>
+      <a href="News.htm">News Room</a>
+      <a href="">Conditions of Use</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="footer-brand">
+      <p>A <strong><b>CineVault</b></strong> company</p>
+      <p>&copy; 2025 by CineVault.com, Inc.</p>
+    </div>
+  </footer>
+</body>
+
 </html>

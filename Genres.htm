@@ -1,351 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CineVault : Genres</title>
-    <link rel="shortcut icon" href="logo.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <style>
-      header {
-        background-color: #ffffff;
-        color: #000000;
-        padding: 10px 0;
-        text-align: center;
-      }
 
-      h1 {
-        margin: 0;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineVault : Genres</title>
+  <link rel="shortcut icon" href="logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css.css">
+  <style>
+    main {
+      padding: 20px;
+    }
 
-      #head {
-        font-family: "Times New Roman", sans-serif;
-        color: #000000;
-        text-align: center;
-        margin: 20px;
-      }
+    .genre-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding: 20px 10px 150px 10px;
+      align-items: center;
+      background-color: #000000;
+    }
 
-      .nav {
-        margin-top: 10px;
-        background-color: #ffffff;
-        padding: 10px 0;
-      }
+    .genre-card {
+      display: flex;
+      gap: 20px;
+      background-color: #000000;
+      border: 1px solid #444;
+      border-radius: 10px;
+      padding: 20px;
+      width: 90%;
+      max-width: 1000px;
+      color: #fff;
+    }
 
-      .nav a {
-        position: relative;
-        color: #000000;
-        text-decoration: none;
-        margin: 0 15px;
-        font-weight: bold;
-        transition: color 0.3s ease;
-      }
+    .genre-card:hover {
+      display: flex;
+      gap: 20px;
+      background-color: #1a1a1a;
+      border: 1px solid #f5c518;
+    }
 
-      .nav a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 2px;
-        background-color: #000000;
-        transition: width 0.3s ease;
-      }
+    .genre-img img {
+      width: 280px;
+      height: auto;
+      border-radius: 10px;
+    }
 
-      .nav a:hover::after {
-        width: 100%;
-      }
+    .genre-content h3 {
+      color: #f5c518;
+      font-size: 28px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
 
-      .nav a:hover {
-        color: #555;
-      }
+    .genre-content p {
+      font-size: 16px;
+      color: #ffffff;
+      line-height: 1.5;
+    }
 
-      /* Active page underline */
-      .nav a.active {
-        color: #d35400;
-      }
+    .genre-tags {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-      .nav a.active::after {
-        width: 100%;
-        background-color: #d35400;
-      }
+    .genre-tags span {
+      padding: 6px 12px;
+      border: 1px solid #666;
+      border-radius: 20px;
+      background-color: transparent;
+      color: #ffffff;
+      font-size: 14px;
+      font-family: 'Arial', sans-serif;
+    }
 
-      body {
-        font-family: "Times New Roman", Times, serif, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #ffffff;
-      }
+    .page-title {
+      color: #ffffff;
+      text-align: center;
+    }
 
-      .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 20px;
-      }
+    .para {
+      font-family: "Times New Roman", Times, serif, sans-serif;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ffffff;
+      margin-top: auto;
+      margin: 20px 0;
+      text-align: center;
+    }
+  </style>
+</head>
 
-      .footer-links a {
-        color: #ffffff;
-        text-decoration: none;
-        font-size: 14px;
-      }
+<body>
+  <header>
+    <h1 id="head"><span class="logo-text">CineVault</span></h1>
+    <nav class="nav">
+      <a href="Home.htm">Home</a> | <a href="Login.htm">Login</a> |
+      <a href="SignUp.htm">Sign Up</a> | <a href="GOAT's.htm">GOAT's</a> |
+      <a href="Genres.htm">Genres</a> | <a href="Films.htm">Films</a> |
+      <a href="TVShows.htm">TV Shows</a> |
+      <a href="Awards&Events.htm">Awards & Events</a> |
+      <a href="Celebs.htm">Celebs</a> | <a href="Members.htm">Members</a> |
+      <a href="News.htm">News</a> | <a href="Profile.htm">Profile</a> |
+      <a href="AboutUs.htm">About Us</a>
+    </nav>
+  </header>
 
-      .footer-links a:hover {
-        text-decoration: underline;
-      }
+  <main>
+    <h2 class="page-title">Explore by Genre</h2>
+    <p class="para">
+      Dive into your favorite film genres and discover legendary titles across
+      each category.
+    </p>
 
-      .footer-brand {
-        font-size: 14px;
-        color: #ffffff;
-      }
-
-      .footer-social {
-        margin-top: 50px;
-      }
-
-      .footer-social h3,
-      .footer-app h3 {
-        margin-bottom: 10px;
-      }
-
-      .footer-top {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: flex-start;
-        gap: 30px;
-        margin-bottom: 30px;
-      }
-
-      .icons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-      }
-
-      .icons a {
-        margin-top: 10px;
-        color: #ffffff;
-        font-size: 24px;
-        text-decoration: none;
-      }
-
-      .qr-box {
-        width: 100px;
-        height: 80px;
-        background-color: #000000;
-        color: #ffffff;
-        display: inline-block;
-        line-height: 80px;
-        text-align: center;
-        font-size: 12px;
-        border-radius: 10px;
-      }
-
-      .site-footer {
-        background-color: #0d0d0d;
-        color: #fff;
-        padding: 30px 20px;
-        font-family: Arial, sans-serif;
-        text-align: center;
-      }
-      main {
-        padding: 20px;
-      }
-
-      .genre-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 4 boxes per row */
-        gap: 10px;
-        margin-top: 30px;
-        margin-bottom: 200px;
-      }
-
-      .genre-box a {
-        display: block;
-        background-color: #f5f5f5;
-        padding: 15px;
-        text-align: center;
-        font-size: 18px;
-        font-weight: bold;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        color: #000000;
-        text-decoration: none;
-        transition: background-color 0.3s;
-      }
-
-      .genre-box a:hover {
-        background-color: #e0e0e0;
-      }
-
-      .page-title {
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      .para {
-        font-family: "Times New Roman", Times, serif, sans-serif;
-        font-style: italic;
-        font-size: 18px;
-        line-height: 1.6;
-        color: #000000;
-        margin: 20px 0;
-        text-align: center;
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <h1 id="head">CineVault</h1>
-      <nav class="nav">
-        <a href="Home.htm">Home</a> | <a href="Login.htm">Login</a> |
-        <a href="SignUp.htm">Sign Up</a> | <a href="GOAT's.htm">GOAT's</a> |
-        <a href="Genres.htm">Genres</a> | <a href="Films.htm">Films</a> |
-        <a href="TVShows.htm">TV Shows</a> |
-        <a href="Awards&Events.htm">Awards & Events</a> |
-        <a href="Celebs.htm">Celebs</a> | <a href="Members.htm">Members</a> |
-        <a href="News.htm">News</a> | <a href="Profile.htm">Profile</a> |
-        <a href="AboutUs.htm">About Us</a>
-      </nav>
-    </header>
-
-    <main>
-      <p class="page-title">Explore by Genre</p>
-      <p class="para">
-        Dive into your favorite film genres and discover legendary titles across
-        each category.
-      </p>
-
-      <div class="genre-grid">
-        <div class="genre-box">
-          <a href="https://en.wikipedia.org/wiki/Action_film" target="_blank"
-            >Action</a
-          >
-        </div>
-        <div class="genre-box">
-          <a
-            href="https://en.wikipedia.org/wiki/Drama_(film_and_television)"
-            target="_blank"
-            >Drama</a
-          >
-        </div>
-        <div class="genre-box">
-          <a href="https://en.wikipedia.org/wiki/Comedy_film" target="_blank"
-            >Comedy</a
-          >
-        </div>
-        <div class="genre-box">
-          <a
-            href="https://en.wikipedia.org/wiki/Thriller_(genre)"
-            target="_blank"
-            >Thriller</a
-          >
-        </div>
-        <div class="genre-box">
-          <a href="https://en.wikipedia.org/wiki/Romance_film" target="_blank"
-            >Romance</a
-          >
-        </div>
-        <div class="genre-box">
-          <a href="https://en.wikipedia.org/wiki/Horror_film" target="_blank"
-            >Horror</a
-          >
-        </div>
-        <div class="genre-box">
-          <a
-            href="https://en.wikipedia.org/wiki/Science_fiction_film"
-            target="_blank"
-            >Science Fiction</a
-          >
-        </div>
-        <div class="genre-box">
-          <a href="https://en.wikipedia.org/wiki/Fantasy_film" target="_blank"
-            >Fantasy</a
-          >
-        </div>
-        <div class="genre-box">
-          <a href="https://en.wikipedia.org/wiki/Animated_film" target="_blank"
-            >Animation</a
-          >
-        </div>
-        <div class="genre-box">
-          <a href="https://en.wikipedia.org/wiki/Mystery_film" target="_blank"
-            >Mystery</a
-          >
-        </div>
-        <div class="genre-box">
-          <a href="https://en.wikipedia.org/wiki/Crime_film" target="_blank"
-            >Crime</a
-          >
-        </div>
-        <div class="genre-box">
-          <a
-            href="https://en.wikipedia.org/wiki/Documentary_film"
-            target="_blank"
-            >Documentary</a
-          >
-        </div>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-top">
-        <div class="footer-social">
-          <h3>Follow CineVault on social</h3>
-          <div class="icons">
-            <a href="https://en.wikipedia.org/wiki/Facebook" target="_blank"
-              ><i class="fa-brands fa-facebook"></i
-            ></a>
-            <a href="https://en.wikipedia.org/wiki/Twitter" target="_blank"
-              ><i class="fa-brands fa-twitter"></i
-            ></a>
-            <a href="https://en.wikipedia.org/wiki/Instagram" target="_blank"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
-            <a href="https://en.wikipedia.org/wiki/YouTube" target="_blank"
-              ><i class="fa-brands fa-youtube"></i
-            ></a>
-            <a href="https://en.wikipedia.org/wiki/LinkedIn" target="_blank"
-              ><i class="fa-brands fa-linkedin"></i
-            ></a>
+    <section class="genre-grid">
+      <div class="genre-card">
+        <div class="genre-img"><img src="John-Wick.webp" alt="Action"></div>
+        <div class="genre-content">
+          <h3>Action</h3>
+          <p>The action genre features fast-paced, thrilling, and intense sequences of physical feats, combat, and
+            excitement. The characters of these stories are involved in daring and often dangerous situations, requiring
+            them to rely on their physical prowess, skills, and quick thinking to overcome challenges and adversaries.
+          </p>
+          <div class="genre-tags">
+            <span>All · 52,893</span>
+            <span>Movies · 39,127</span>
+            <span>TV Shows · 13,766</span>
           </div>
         </div>
+      </div>
+      </div>
 
-        <div class="footer-app">
-          <h3>Get the CineVault App</h3>
-          <p>For Android and iOS</p>
-          <div class="qr-box">
-            <img src="qr.png" alt="CineVault" width="100" />
+      <div class="genre-card">
+        <div class="genre-img"><img src="breakingbad.jpg" alt="Drama"></div>
+        <div class="genre-content">
+          <h3>Drama</h3>
+          <p>The drama genre is a broad category that features stories portraying human experiences, emotions,
+            conflicts, and relationships in a realistic and emotionally impactful way. Dramas delve into the
+            complexities of human life, often exploring themes of love, loss, morality, societal issues, personal
+            growth, with the aim to evoke an emotional response from the audience by presenting relatable and
+            thought-provoking stories.</p>
+          <div class="genre-tags"><span>All · 48,000</span><span>Movies · 33,000</span><span>TV Shows · 15,000</span>
           </div>
         </div>
       </div>
 
-      <div class="footer-links">
-        <a href="#">Help</a>
-        <a href="Members.htm">Membership</a>
-        <a href="News.htm">News Room</a>
-        <a href="">Conditions of Use</a>
-        <a href="#">Privacy Policy</a>
+      <div class="genre-card">
+        <div class="genre-img"><img src="hangover.avif" alt="Comedy"></div>
+        <div class="genre-content">
+          <h3>Comedy</h3>
+          <p>The comedy genre refers to a category of entertainment that aims to amuse and entertain audiences by using
+            humor, wit, and comedic situations. Comedies are created with the primary intention of eliciting laughter
+            and providing lighthearted enjoyment. They encompass a wide range of styles, tones, and themes, appealing to
+            various tastes and audiences.</p>
+          <div class="genre-tags"><span>All · 44,500</span><span>Movies · 32,000</span><span>TV Shows · 12,500</span>
+          </div>
+        </div>
       </div>
 
-      <div class="footer-brand">
-        <p>
-          A <strong><b>CineVault</b></strong> company
-        </p>
-        <p>&copy; 2025 by CineVault.com, Inc.</p>
+      <div class="genre-card">
+        <div class="genre-img"><img src="theprestige.jpeg" alt="Thriller"></div>
+        <div class="genre-content">
+          <h3>Thriller</h3>
+          <p>The thriller genre features suspense, tension, and excitement. These stories are known for keeping
+            audiences on the edge of their seats and delivering intense emotional experiences by revolving around
+            high-stakes situations, dangerous conflicts, and the constant anticipation of unexpected events.</p>
+          <div class="genre-tags"><span>All · 42,000</span><span>Movies · 30,000</span><span>TV Shows · 12,000</span>
+          </div>
+        </div>
       </div>
-    </footer>
-  </body>
+
+      <div class="genre-card">
+        <div class="genre-img"><img src="titanic.jpeg" alt="Romance"></div>
+        <div class="genre-content">
+          <h3>Romance</h3>
+          <p>The romance genre features the theme of romantic relationships and emotional connections between
+            characters. These stories focus on the development of love, desire, and intimacy between protagonists, often
+            exploring the challenges, conflicts, and triumphs that arise in their relationships.</p>
+          <div class="genre-tags"><span>All · 40,000</span><span>Movies · 28,500</span><span>TV Shows · 11,500</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="genre-card">
+        <div class="genre-img"><img src="theshining.jpg" alt="Horror"></div>
+        <div class="genre-content">
+          <h3>Horror</h3>
+          <p>The horror genre features stories that aim to elicit fear, suspense, and a sense of dread in its audience.
+            Horror stories often explore themes related to the unknown, the supernatural, and the macabre, and they
+            frequently evoke strong emotional reactions such as anxiety, terror, and unease.</p>
+          <div class="genre-tags"><span>All · 38,000</span><span>Movies · 29,000</span><span>TV Shows · 9,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="genre-card">
+        <div class="genre-img"><img src="blade.jpg" alt="Science Fiction"></div>
+        <div class="genre-content">
+          <h3>Science Fiction</h3>
+          <p>The sci-fi epic subgenre features grand narratives set in expansive and imaginative worlds. Sci-fi epics
+            often span vast time periods, multiple locations, and involve intricate plots that explore complex themes,
+            societal changes, technology, and the evolution of civilizations.</p>
+          <div class="genre-tags"><span>All · 36,000</span><span>Movies · 26,000</span><span>TV Shows · 10,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="genre-card">
+        <div class="genre-img"><img src="gladiator.avif" alt="Fantasy"></div>
+        <div class="genre-content">
+          <h3>Fantasy</h3>
+          <p>The fantasy genre features imaginative and often magical worlds, characters, and events. It explores realms
+            beyond the boundaries of reality, featuring elements such as magic, mythical creatures, supernatural powers,
+            and fantastical settings. These stories can take place in entirely fictional worlds or blend fantastical
+            elements with real-world settings.</p>
+          <div class="genre-tags"><span>All · 35,000</span><span>Movies · 25,000</span><span>TV Shows · 10,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="genre-card">
+        <div class="genre-img"><img src="kungfu.jpg" alt="Animation"></div>
+        <div class="genre-content">
+          <h3>Animation</h3>
+          <p>Animation is a form of visual storytelling that involves creating visual art and motion through the use of
+            various techniques and technologies. In animation, images are manipulated to create the illusion of
+            movement, bringing characters, objects, and environments to life. Animation can encompass a wide range of
+            styles, themes, and intended audiences, making it a diverse and versatile form of storytelling.</p>
+          <div class="genre-tags"><span>All · 33,000</span><span>Movies · 23,000</span><span>TV Shows · 10,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="genre-card">
+        <div class="genre-img"><img src="tus.avif" alt="Mystery"></div>
+        <div class="genre-content">
+          <h3>Mystery</h3>
+          <p>The mystery genre features the investigation and solving of a puzzle, typically a crime or an enigmatic
+            event. Mysteries are known for their suspenseful narratives, intricate plots, and the challenge they present
+            to readers or viewers to piece together clues and solve the central mystery alongside the characters.</p>
+          <div class="genre-tags"><span>All · 32,000</span><span>Movies · 21,000</span><span>TV Shows · 11,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="genre-card">
+        <div class="genre-img"><img src="micheal.jpg" alt="Crime"></div>
+        <div class="genre-content">
+          <h3>Crime</h3>
+          <p>The crime genre features criminal activities, investigations, law enforcement, crimes, and the pursuit of
+            justice. Crime stories often revolve around the planning, execution, and consequences of criminal acts, as
+            well as the efforts to solve and prevent such acts. They explore various aspects of criminal behavior,
+            motives, and the moral dilemmas faced by both perpetrators and those seeking to uphold the law.</p>
+          <div class="genre-tags"><span>All · 31,000</span><span>Movies · 20,000</span><span>TV Shows · 11,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="genre-card">
+        <div class="genre-img"><img src="superman.webp" alt="Documentary"></div>
+        <div class="genre-content">
+          <h3>Documentary</h3>
+          <p>The documentary is a form of non-fiction storytelling that aims to present factual information, insights,
+            and perspectives on real-world subjects, events, issues, or people. Documentaries can cover a wide range of
+            topics, including history, science, culture, social issues, nature, biographies, and more.</p>
+          <div class="genre-tags"><span>All · 30,000</span><span>Movies · 18,000</span><span>TV Shows · 12,000</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-social">
+        <h3>Follow CineVault on social</h3>
+        <div class="icons">
+          <a href="https://en.wikipedia.org/wiki/Facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://en.wikipedia.org/wiki/Twitter" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://en.wikipedia.org/wiki/Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://en.wikipedia.org/wiki/YouTube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://en.wikipedia.org/wiki/LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-app">
+        <h3>Get the CineVault App</h3>
+        <p>For Android and iOS</p>
+        <div class="qr-box"><img src="qr.png" alt="CineVault" width="100"></div>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">Help</a>
+      <a href="Members.htm">Membership</a>
+      <a href="News.htm">News Room</a>
+      <a href="">Conditions of Use</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="footer-brand">
+      <p>A <strong><b>CineVault</b></strong> company</p>
+      <p>&copy; 2025 by CineVault.com, Inc.</p>
+    </div>
+  </footer>
+</body>
+
 </html>

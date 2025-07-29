@@ -9,180 +9,151 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css.css">
   <style>
-    header {
-      background-color: #ffffff;
-      color: #000000;
-      padding: 10px 0;
-      text-align: center;
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    #head {
-      font-family: "Times New Roman", sans-serif;
-      color: #000000;
-      text-align: center;
-      margin: 20px;
-    }
-
-    .nav {
-      margin-top: 10px;
-      background-color: #ffffff;
-      padding: 10px 0;
-    }
-
-    .nav a {
-      position: relative;
-      color: #000000;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 2px;
-      background-color: #000000;
-      transition: width 0.3s ease;
-    }
-
-    .nav a:hover::after {
-      width: 100%;
-    }
-
-    .nav a:hover {
-      color: #555;
-    }
-
-    /* Active page underline */
-    .nav a.active {
-      color: #d35400;
-    }
-
-    .nav a.active::after {
-      width: 100%;
-      background-color: #d35400;
-    }
-
-    body {
-      font-family: "Times New Roman", Times, serif, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #ffffff;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .footer-links a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-brand {
-      font-size: 14px;
-      color: #ffffff;
-    }
-
-    .footer-social {
-      margin-top: 50px;
-    }
-
-    .footer-social h3,
-    .footer-app h3 {
-      margin-bottom: 10px;
-    }
-
-    .footer-top {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: flex-start;
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-
-    .icons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .icons a {
-      margin-top: 10px;
-      color: #ffffff;
-      font-size: 24px;
-      text-decoration: none;
-    }
-
-    .qr-box {
-      width: 100px;
-      height: 80px;
-      background-color: #000000;
-      color: #ffffff;
-      display: inline-block;
-      line-height: 80px;
-      text-align: center;
-      font-size: 12px;
-      border-radius: 10px;
-    }
-
-    .site-footer {
-      background-color: #0d0d0d;
-      color: #fff;
-      padding: 30px 20px;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-
     main {
       padding: 20px;
       max-width: 900px;
       margin: auto;
     }
 
-    .section {
+    .about-section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .about-item {
       margin-bottom: 30px;
     }
 
-    .section h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
+    .about-heading {
+      width: 100%;
+      font-family: 'Times New Roman', Times, serif;
+      background: none;
+      border: none;
+      font-size: 24px;
+      font-weight: bold;
+      color: #f5c518;
+      text-align: left;
+      padding: 10px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
     }
 
-    .section p {
-      font-size: 16px;
+    .about-heading::after {
+      content: "\f107";
+      /* Font Awesome down arrow */
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      margin-left: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .about-heading.active::after {
+      transform: rotate(180deg);
+    }
+
+    .about-heading:focus {
+      outline: none;
+    }
+
+    .about-text {
+      display: none;
+      padding: 10px 0;
+      font-family: "Times New Roman", serif;
+      font-size: 18px;
+      color: #ffffff;
       line-height: 1.6;
-      color: #000000;
+    }
+
+    .about-text a {
+      color: #f5c518;
+      text-decoration: none;
+    }
+
+    .help-button {
+      margin-top: 50px;
+      background-color: #000000;
+      border: 2px solid #2e2e2e;
+      border-radius: 20px;
+      padding: 30px 25px;
+      font-size: 15px;
+      font-weight: 900;
+      font-family: 'Times New Roman';
+      color: #f5c518;
+      box-shadow: 0 0 18px #000000aa;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      margin: 10px auto 10px;
+    }
+
+    .help-button:hover,
+    .help-button:focus-within {
+      border-color: #f5c518;
+      box-shadow: 0 0 20px #f5c518;
+      outline: none;
+    }
+
+    /* Popup overlay */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Popup box */
+    .popup-box {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+      position: relative;
+    }
+
+    .popup-box h2 {
+      margin-top: 0;
+      text-align: center;
+      margin-bottom: 30px;
+      font-family: 'Montserrat', 'Times New Roman', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #ffd700;
+      text-shadow: 0 0 10px #f5c518aa;
+    }
+
+    .popup-box a {
+      color: #f5c518;
+      text-decoration: none;
+    }
+
+    /* Close button */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: #f5c518;
+      font-size: 18px;
+      font-size: 24px;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1 id="head">CineVault</h1>
+    <h1 id="head"><span class="logo-text">CineVault</span></h1>
     <nav class="nav">
       <a href="Home.htm">Home</a> | <a href="Login.htm">Login</a> |
       <a href="SignUp.htm">Sign Up</a> | <a href="GOAT's.htm">GOAT's</a> |
@@ -196,46 +167,103 @@
   </header>
 
   <main>
-    <div class="section">
-      <h2>Who We Are</h2>
-      <p>
-        CineVault is a passion project born out of love for cinema. We are a
-        team of movie buffs, critics, and developers committed to creating a
-        space where film lovers from all over the world can connect, explore,
-        and share their cinematic journey.
-      </p>
+    <div class="about-section">
+      <div class="about-item">
+        <button class="about-heading">Who We Are</button>
+        <div class="about-text">
+          <p>
+            CineVault is a passion project born out of love for cinema. We are a team of movie buffs, critics,
+            and developers committed to creating a space where film lovers from all over the world can connect,
+            explore, and share their cinematic journey.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-item">
+        <button class="about-heading">What We Offer</button>
+        <div class="about-text">
+          <p>
+            From timeless classics to the latest blockbusters, CineVault covers all genres and generations of
+            filmmaking.
+            Our platform allows users to create profiles, rate and review films, explore curated lists, participate
+            in discussions, and stay up-to-date with the latest film industry news and events.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-item">
+        <button class="about-heading">Our Mission</button>
+        <div class="about-text">
+          <p>
+            To build a thriving community that respects the art of cinema, celebrates storytellers, and keeps the
+            legacy of great filmmaking alive. CineVault is more than just a database—it's a vault of shared emotion,
+            storytelling, and artistry.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-item">
+        <button class="about-heading">Contact Us</button>
+        <div class="about-text">
+          <p>
+            Got feedback, questions, or partnership ideas? We'd love to hear from you! Contact us at
+            <strong><a href="Home.htm">www.CineVault.com</a></strong>
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div class="section">
-      <h2>What We Offer</h2>
-      <p>
-        From timeless classics to the latest blockbusters, CineVault covers
-        all genres and generations of filmmaking. Our platform allows users to
-        create profiles, rate and review films, explore curated lists,
-        participate in discussions, and stay up-to-date with the latest film
-        industry news and events.
-      </p>
-    </div>
+    <!-- Help Button -->
+    <button class="help-button" onclick="openHelp()">HELP</button>
 
-    <div class="section">
-      <h2>Our Mission</h2>
-      <p>
-        To build a thriving community that respects the art of cinema,
-        celebrates storytellers, and keeps the legacy of great filmmaking
-        alive. CineVault is more than just a database—it's a vault of shared
-        emotion, storytelling, and artistry.
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>Contact Us</h2>
-      <p>
-        Got feedback, questions, or partnership ideas? We'd love to hear from
-        you! Contact us at
-        <strong>www.CineVault.com</strong>.
-      </p>
+    <!-- Help Popup Modal -->
+    <div id="helpPopup" class="popup-overlay">
+      <div class="popup-box">
+        <span class="close-btn" onclick="closeHelp()">&times;</span>
+        <h2>Need Help?</h2>
+        <p>Welcome to CineVault! For login issues, membership questions, or site guidance, visit the
+          <strong><a href="AboutUs.htm">Help Page</a></strong> or contact support.
+        </p>
+      </div>
     </div>
   </main>
+
+  <script>
+    const headings = document.querySelectorAll('.about-heading');
+
+    headings.forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const isOpen = content.style.display === 'block';
+
+        // Close all
+        document.querySelectorAll('.about-text').forEach(text => text.style.display = 'none');
+        document.querySelectorAll('.about-heading').forEach(h => h.classList.remove('active'));
+
+        // Open the clicked one if it wasn't already open
+        if (!isOpen) {
+          content.style.display = 'block';
+          button.classList.add('active');
+        }
+      });
+    });
+
+    function openHelp() {
+      document.getElementById("helpPopup").style.display = "block";
+    }
+
+    function closeHelp() {
+      document.getElementById("helpPopup").style.display = "none";
+    }
+
+    // Optional: Close when clicking outside the popup
+    window.onclick = function (event) {
+      const popup = document.getElementById("helpPopup");
+      if (event.target == popup) {
+        popup.style.display = "none";
+      }
+    }
+  </script>
 
   <footer class="site-footer">
     <div class="footer-top">
@@ -253,9 +281,7 @@
       <div class="footer-app">
         <h3>Get the CineVault App</h3>
         <p>For Android and iOS</p>
-        <div class="qr-box">
-          <img src="qr.png" alt="CineVault" width="100" />
-        </div>
+        <div class="qr-box"><img src="qr.png" alt="CineVault" width="100"></div>
       </div>
     </div>
 
@@ -268,9 +294,7 @@
     </div>
 
     <div class="footer-brand">
-      <p>
-        A <strong><b>CineVault</b></strong> company
-      </p>
+      <p>A <strong><b>CineVault</b></strong> company</p>
       <p>&copy; 2025 by CineVault.com, Inc.</p>
     </div>
   </footer>

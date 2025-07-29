@@ -1,326 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CineVault : Login</title>
-    <link rel="shortcut icon" href="logo.png" />
-    <link
-      href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <style>
-      /* Header */
-      header {
-        background-color: #000000;
-        color: #ffffff;
-        padding: 10px 0;
-        text-align: center;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineVault : Login</title>
+  <link rel="shortcut icon" href="logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css.css">
+  <style>
+    main {
+      padding: 40px 20px 120px;
+      max-width: 350px;
+      margin: 0 auto;
+    }
+
+    form {
+      color: #ffffff;
+      border: 1px solid #444;
+      background-color: #121212;
+      padding: 25px;
+      border-radius: 6px;
+    }
+
+    h2 {
+      margin-bottom: auto;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      background-color: #000000;
+      color: #ffffff;
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+      border-radius: 20px;
+      border: 2px solid #505157;
+      outline: none;
+      transition: border-color 0.4s;
+    }
+
+    input[type="email"]:hover,
+    input[type="password"]:hover {
+      border: 2px solid #f5c518;
+      background-color: #111111;
+      outline: none;
+    }
+
+    button {
+      font-family: "Times New Roman", Times, serif;
+      width: 100%;
+      padding: 12px;
+      background-color: #f5c518;
+      border-radius: 20px;
+      color: #000000;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      color: #f5c518;
+      background-color: #2e2e2e;
+    }
+
+    .signup-link {
+      text-decoration: none;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .signup-link a {
+      text-decoration: none;
+      color: #484848;
+    }
+
+    .signup-link a:hover {
+      color: #f5c518;
+      text-decoration: underline;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+      margin-left: 5px;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 id="head"><span class="logo-text">CineVault</span></h1>
+    <nav class="nav">
+      <a href="Home.htm">Home</a> | <a href="Login.htm">Login</a> |
+      <a href="SignUp.htm">Sign Up</a> | <a href="GOAT's.htm">GOAT's</a> |
+      <a href="Genres.htm">Genres</a> | <a href="Films.htm">Films</a> |
+      <a href="TVShows.htm">TV Shows</a> |
+      <a href="Awards&Events.htm">Awards & Events</a> |
+      <a href="Celebs.htm">Celebs</a> | <a href="Members.htm">Members</a> |
+      <a href="News.htm">News</a> | <a href="Profile.htm">Profile</a> |
+      <a href="AboutUs.htm">About Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Log in</h2>
+    <form action="back.java" method="post" id="myForm" onsubmit="return validateForm()">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" />
+      <span id="emailError" class="error"></span>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" />
+      <span id="passwordError" class="error"></span><br>
+
+      <button type="submit">Login</button>
+
+      <div class="signup-link">
+        <br />
+        Don’t have an account? <a href="SignUp.htm">Sign up here</a>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    function validateForm() {
+      // Get values
+      let email = document.getElementById("email").value.trim();
+      let password = document.getElementById("password").value.trim();
+
+      // Error placeholders
+      let valid = true;
+
+      // Clear previous errors
+      document.getElementById("emailError").innerText = "";
+      document.getElementById("passwordError").innerText = "";
+
+      // Email validation
+      let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        document.getElementById("emailError").innerText = "Enter a valid email.";
+        valid = false;
       }
 
-      h1 {
-        margin: 0;
+      // Password validation
+      if (password.length < 6) {
+        document.getElementById("passwordError").innerText = "Password must be at least 6 characters.";
+        valid = false;
       }
 
-      #head {
-        font-family: "Times New Roman", sans-serif;
-        color: #f5c518;
-        text-align: center;
-        margin: 20px;
+      // Optional: show alert on valid
+      if (valid) {
+        alert("Form is valid. Logging in...");
       }
 
-      /* Navigation */
-      .nav {
-        margin-top: 10px;
-        background-color: #000000;
-        padding: 10px 0;
-      }
+      return valid; // Prevent submission if invalid
+    }
+  </script>
 
-      .nav a {
-        position: relative;
-        color: #ffffff;
-        text-decoration: none;
-        margin: 0 15px;
-        font-weight: bold;
-        transition: color 0.3s ease;
-      }
 
-      .nav a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 50%;
-        transform: translateX(-50%) scaleX(0);
-        transform-origin: center;
-        width: 100%;
-        height: 2px;
-        background-color: #f5c518;
-        /* changed from black to IMDb yellow */
-        transition: transform 0.3s ease;
-      }
-
-      .nav a:hover::after {
-        transform: translateX(-50%) scaleX(1);
-      }
-
-      .nav a:hover {
-        color: #f5c518;
-      }
-
-      /* Body */
-      body {
-        font-family: "Times New Roman", Times, serif, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #000000;
-      }
-
-      .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 20px;
-      }
-
-      .footer-links a {
-        color: #ffffff;
-        text-decoration: none;
-        font-size: 14px;
-      }
-
-      .footer-links a:hover {
-        text-decoration: underline;
-      }
-
-      .footer-brand {
-        font-size: 14px;
-        color: #ffffff;
-      }
-
-      .footer-social {
-        margin-top: 50px;
-      }
-
-      .footer-social h3,
-      .footer-app h3 {
-        margin-bottom: 10px;
-      }
-
-      .footer-top {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: flex-start;
-        gap: 30px;
-        margin-bottom: 30px;
-      }
-
-      .icons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-      }
-
-      .icons a {
-        margin-top: 10px;
-        color: #ffffff;
-        font-size: 24px;
-        text-decoration: none;
-      }
-
-      .icons a:hover {
-        color: #f5c518;
-      }
-
-      .qr-box {
-        width: 100px;
-        height: 80px;
-        background-color: #000000;
-        color: #ffffff;
-        display: inline-block;
-        line-height: 80px;
-        text-align: center;
-        font-size: 12px;
-        border-radius: 10px;
-      }
-
-      .site-footer {
-        background-color: #000000;
-        color: #fff;
-        padding: 30px 20px;
-        font-family: Arial, sans-serif;
-        text-align: center;
-      }
-
-      main {
-        padding: 40px 20px 120px;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      h2 {
-        margin-left: 23px;
-        color: #ffffff;
-        text-align: left;
-      }
-
-      form {
-        color: #ffffff;
-        background-color: #000000;
-        padding: 25px;
-        border-radius: 10px;
-      }
-
-      label {
-        display: block;
-        margin-top: 15px;
-        font-weight: bold;
-      }
-
-      input[type="email"],
-      input[type="password"] {
-        background-color: #000000;
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        box-sizing: border-box;
-        font-size: 16px;
-        border-radius: 20px;
-      }
-
-      input[type="email"]:hover,
-      input[type="password"]:hover {
-        color: #ffffff;
-        border-radius: 20px;
-        border: 0.1px solid #fdf37a;
-        background-color: #000000;
-      }
-
-      button {
-        font-family: "Times New Roman", Times, serif;
-        width: 100%;
-        padding: 12px;
-        margin-top: 20px;
-        background-color: #fdf37a;
-        border-radius: 20px;
-        color: #2e2e2e;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-      }
-
-      button:hover {
-        color: #fdf37a;
-        background-color: #2e2e2e;
-      }
-
-      .signup-link {
-        text-decoration: none;
-        text-align: center;
-        margin-top: 15px;
-        font-size: 14px;
-      }
-
-      .signup-link a {
-        text-decoration: none;
-        color: #484848;
-      }
-
-      .signup-link a:hover {
-        color: #fdf37a;
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <h1 id="head">CineVault</h1>
-      <nav class="nav">
-        <a href="Home.htm">Home</a> | <a href="Login.htm">Login</a> |
-        <a href="SignUp.htm">Sign Up</a> | <a href="GOAT's.htm">GOAT's</a> |
-        <a href="Genres.htm">Genres</a> | <a href="Films.htm">Films</a> |
-        <a href="TVShows.htm">TV Shows</a> |
-        <a href="Awards&Events.htm">Awards & Events</a> |
-        <a href="Celebs.htm">Celebs</a> | <a href="Members.htm">Members</a> |
-        <a href="News.htm">News</a> | <a href="Profile.htm">Profile</a> |
-        <a href="AboutUs.htm">About Us</a>
-      </nav>
-    </header>
-
-    <main>
-      <h2>Log in</h2>
-      <form action="back.java" method="post">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required />
-
-        <button type="submit">Login</button>
-
-        <div class="signup-link">
-          <br />
-          Don’t have an account? <a href="SignUp.htm">Sign up here</a>
-        </div>
-      </form>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-top">
-        <div class="footer-social">
-          <h3>Follow CineVault on social</h3>
-          <div class="icons">
-            <a href="https://en.wikipedia.org/wiki/Facebook" target="_blank"
-              ><i class="fa-brands fa-facebook"></i
-            ></a>
-            <a href="https://en.wikipedia.org/wiki/Twitter" target="_blank"
-              ><i class="fa-brands fa-twitter"></i
-            ></a>
-            <a href="https://en.wikipedia.org/wiki/Instagram" target="_blank"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
-            <a href="https://en.wikipedia.org/wiki/YouTube" target="_blank"
-              ><i class="fa-brands fa-youtube"></i
-            ></a>
-            <a href="https://en.wikipedia.org/wiki/LinkedIn" target="_blank"
-              ><i class="fa-brands fa-linkedin"></i
-            ></a>
-          </div>
-        </div>
-
-        <div class="footer-app">
-          <h3>Get the CineVault App</h3>
-          <p>For Android and iOS</p>
-          <div class="qr-box">
-            <img src="qr.png" alt="CineVault" width="100" />
-          </div>
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-social">
+        <h3>Follow CineVault on social</h3>
+        <div class="icons">
+          <a href="https://en.wikipedia.org/wiki/Facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://en.wikipedia.org/wiki/Twitter" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://en.wikipedia.org/wiki/Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://en.wikipedia.org/wiki/YouTube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://en.wikipedia.org/wiki/LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
 
-      <div class="footer-links">
-        <a href="#">Help</a>
-        <a href="Members.htm">Membership</a>
-        <a href="News.htm">News Room</a>
-        <a href="">Conditions of Use</a>
-        <a href="#">Privacy Policy</a>
+      <div class="footer-app">
+        <h3>Get the CineVault App</h3>
+        <p>For Android and iOS</p>
+        <div class="qr-box"><img src="qr.png" alt="CineVault" width="100"></div>
       </div>
+    </div>
 
-      <div class="footer-brand">
-        <p>
-          A <strong><b>CineVault</b></strong> company
-        </p>
-        <p>&copy; 2025 by CineVault.com, Inc.</p>
-      </div>
-    </footer>
-  </body>
+    <div class="footer-links">
+      <a href="#">Help</a>
+      <a href="Members.htm">Membership</a>
+      <a href="News.htm">News Room</a>
+      <a href="">Conditions of Use</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="footer-brand">
+      <p>A <strong><b>CineVault</b></strong> company</p>
+      <p>&copy; 2025 by CineVault.com, Inc.</p>
+    </div>
+  </footer>
+</body>
+
 </html>
