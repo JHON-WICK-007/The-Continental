@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Form Tags Example</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form action="back.java" method="POST">
+  
+  <!-- Text Input --><!-- The label says : “I belong to the input whose id is frame.” -->
+  <label for="fname">First Name :</label><!-- The input has id="fname" → it matches the for="fname" in the label. -->
+  <input type="text" placeholder="Enter your name" id="fname" name="firstname"><!-- The name attribute is used to identify form data when the form is submitted to a server. -->
+  <br><br>
+  
+  <!-- Password Input -->
+  <label for="pwd">Password :</label>
+  <input type="password" placeholder="Enter your password" id="pwd" name="password"><!-- The password input hides the characters typed by the user. -->
+  <br><br>
+  
+  <!-- Email Input -->
+  <label for="email">Email :</label>
+  <input type="email" placeholder="Enter your email" id="email" name="Email"><!-- The email input validates the entered email format. -->
+  <br><br>
+  
+  <!-- Radio Buttons -->
+  Gender :
+  <input type="radio" id="male" name="gender" value="male"><!-- id id also used for automatic clicking, like if we click Male radio button , it will automatically click the input field -->
+  <label for="male">Male</label>
+
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Female</label>
+  <br><br>
+
+  <!-- Checkboxes -->
+  Hobbies :
+  <input type="checkbox" id="music" name="hobbies" value="music">
+  <label for="music">Music</label>  
+  
+  <input type="checkbox" id="sports" name="hobbies" value="sports">
+  <label for="sports">Sports</label>
+
+  <input type="checkbox" id="travel" name="hobbies" value="travel">
+  <label for="travel">Travel</label>
+  <br><br>
+
+  <!-- Dropdown / Select -->
+  <label for="city">Choose your city :</label>
+  <select id="city" name="city">
+    <option value="Surat">Surat</option>
+    <option selected value="Ahemdabad">Ahemdabad</option>
+    <option value="Mumbai">Mumbai</option>
+  </select>
+  <br><br>
+
+  <!-- Textarea -->
+  <label for="bio">Your Bio :</label><br>
+  <textarea placeholder="Enter your bio" id="bio" name="bio" rows="3" cols="40"></textarea>
+  <br><br>
+
+  <!-- File Upload -->
+  <label for="resume">Upload Resume :</label>
+  <input type="file" id="resume" name="resume">
+  <br><br>
+
+  <!-- Submit and Reset Buttons -->
+  <button type="submit">Submit</button>
+  <button type="reset">Reset</button><br><br>
+  
+</form>
+
+</body>
+</html>
