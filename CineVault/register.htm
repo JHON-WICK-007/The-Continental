@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <h1>Registration Form</h1>
+    <form action="submit.php" method="post">
+        <label>Name:</label>
+        <input type="text" name="name" required maxlength="100"><br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" required maxlength="150"><br><br>
+
+        <label>Phone:</label>
+        <input type="tel" name="phone" maxlength="30"><br><br>
+
+        <label>Comment:</label>
+        <textarea name="comment" rows="4" cols="40" maxlength="1000"></textarea><br><br>
+
+        <button type="submit">Submit</button><br><br>
+    </form>
+</body>
+
+</html>

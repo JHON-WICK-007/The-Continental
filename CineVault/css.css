@@ -1,0 +1,155 @@
+ /* Header */
+ header {
+   background-color: #000000;
+   color: #ffffff;
+   padding: 10px 0;
+   text-align: center;
+ }
+
+ #head {
+   font-family: 'Times New Roman';
+   font-weight: bolder;
+   font-size: 3rem;
+   margin: 0;
+   padding: 0;
+ }
+
+ span.logo-text {
+   background-color: #f5c518;
+   color: black;
+   padding: 0.2em 0.5em;
+   border-radius: 0.2em;
+   display: inline-block;
+   font-size: 1.5rem;
+   /* smaller size than before */
+   font-weight: bold;
+   font-family: 'Times New Roman';
+ }
+
+ /* Navigation */
+ .nav {
+   margin-top: 20px;
+   background-color: #000000;
+   padding: 10px 0;
+ }
+
+ .nav a {
+   position: relative;
+   color: #ffffff;
+   text-decoration: none;
+   margin: 0 15px;
+   font-weight: bold;
+   transition: color 0.3s ease;
+ }
+
+ .nav a::after {
+   content: "";
+   position: absolute;
+   bottom: -5px;
+   left: 50%;
+   transform: translateX(-50%) scaleX(0);
+   transform-origin: center;
+   width: 100%;
+   height: 2px;
+   background-color: #f5c518;
+   /* changed from black to IMDb yellow */
+   transition: transform 0.3s ease;
+ }
+
+ .nav a:hover::after {
+   transform: translateX(-50%) scaleX(1);
+ }
+
+ .nav a:hover {
+   color: #f5c518;
+ }
+
+ /* Body */
+ body {
+   font-family: "Times New Roman", Times, serif, sans-serif;
+   margin: 0;
+   padding: 0;
+   background-color: #000000;
+ }
+
+ /* Footer */
+ .site-footer {
+   background-color: #000000;
+   color: #ffffff;
+   padding: 30px 20px;
+   font-family: Arial, sans-serif;
+   text-align: center;
+ }
+
+ .footer-top {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   align-items: flex-start;
+   gap: 30px;
+   margin-bottom: 30px;
+ }
+
+ .footer-social {
+   margin-top: 50px;
+ }
+
+ .footer-social h3,
+ .footer-app h3 {
+   margin-bottom: 10px;
+ }
+
+ .icons {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+   justify-content: center;
+ }
+
+ .icons a {
+   margin-top: 10px;
+   color: #ffffff;
+   font-size: 24px;
+   text-decoration: none;
+ }
+
+ .icons a:hover {
+   color: #f5c518;
+ }
+
+ .footer-links {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 15px;
+   margin-bottom: 20px;
+ }
+
+ .footer-links a {
+   color: #ffffff;
+   text-decoration: none;
+   font-size: 14px;
+ }
+
+ .footer-links a:hover {
+   text-decoration: none;
+   color: #f5c518;
+ }
+
+ .footer-brand {
+   font-size: 14px;
+   color: #ffffff;
+ }
+
+ /* main {
+   padding: 40px 20px 120px;
+   max-width: 400px;
+   margin: 0 auto;
+ }
+
+ form {
+   color: #ffffff;
+   background-color: #000000;
+   padding: 25px;
+   border-radius: 10px;
+ } */
